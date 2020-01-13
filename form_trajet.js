@@ -31,7 +31,4 @@ function loadMapScenario() {
             }
 
 
-function passvalues(){
-     zebi = document.getElementById("name").value;
-    
-}
+

@@ -29,13 +29,6 @@ Released   : 20140331
 <link rel="stylesheet" type="text/css" href="valid_trajet.css">
 
 
-<script type="text/javascript">
-    phpVars = new Array();
-    <?php foreach($_POST as $var) {
-        echo 'phpVars.push("' . $var . '");';
-    };
-    ?>
-</script>
 <script type="text/javascript" src="valid_trajet.js"></script>
 
 
@@ -58,29 +51,29 @@ Released   : 20140331
 </div>
 
 <div class="container">
-  <form action="valid_trajet.php" method='post'>
-    <h2>Informations sur le conducteur</h2>
-    <br>
+  <form action="valid_trajet.html" method='post'>
+
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="email">Nombre de voyageurs (sans conducteur)</label>
-      <input type="number" class="form-control" id="email" name="email" placeholder="4">
+      <label for="email">Demande de passager</label>
+      <ul class="list-group">
+  <li class="list-group-item">Passager 1<input style="margin-left: 55%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
+  <li class="list-group-item">Passager 2<input style="margin-left: 55%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
+  <li class="list-group-item">Passager 3<input style="margin-left: 55%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
+  <li class="list-group-item">Passager 4<input style="margin-left: 55%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
+  <li class="list-group-item">Passager 5<input style="margin-left: 55%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
+</ul>
     </div>
     <div class="form-group col-md-6">
-      <label for="name">Prix par voyageurs (en euros)</label>
-      <input type="number" class="form-control" id="name" name="name" placeholder="25">
+      <label for="name">Passager sélectionnés </label>
+      <ul class="list-group">
+  <li class="list-group-item">Passager 1<input style="margin-left: 60%;" class="btn btn-danger" type="submit" value="Supprimer"></li>
+  <li class="list-group-item">Passager 2<input style="margin-left: 60%;" class="btn btn-danger" type="submit" value="Supprimer"></li>
+  <li class="list-group-item">Passager 3<input style="margin-left: 60%;" class="btn btn-danger" type="submit" value="Supprimer"></li>
+</ul>
     </div>
   </div>
-   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="prenom">Immatriculation</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="XX-000-XX">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="birth">Marque du véhicule</label>
-       <input type="text" class="form-control" id="birth" name="birth" placeholder="BMW">
-    </div>
-  </div>
+    
 </form>
 <br><br>
 <h2>Visualisation de votre trajet :</h2>
@@ -94,6 +87,15 @@ Released   : 20140331
     </div>
    <div id="myMap"></div>
   </div>
+
+
+<br><br>
+<div class="container">
+  <form action="valid_trajet.html" method='post'>
+    
+<input class="btn btn-danger" type="submit" value="Supprimer le trajet" ></p>
+</form>
+<br><br>
 </body>
 
 <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AmEn0V2vO_a1_wMw6FxFKPqd-Cw4okc-yXXV8V6uKdqkFtoiLzOhjVnXK6wfJ9iY' async defer></script>
