@@ -23,7 +23,9 @@ Released   : 20140331
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="signup.js"></script>    
 
 
 
@@ -49,22 +51,23 @@ Released   : 20140331
 
 <div class="container">
   <form action="" method='post'>
-    <h2>Vos informations :</h2>
+    <h2>Vos informations personelles :</h2>
     <br>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-    </div>
+    
     <div class="form-group col-md-6">
       <label for="name">Nom </label>
       <input type="name" class="form-control" id="name" name="name" placeholder="Nom">
     </div>
-  </div>
-   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="prenom">Prénom</label>
       <input type="name" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="birth">Date de naissance</label>
@@ -83,18 +86,26 @@ Released   : 20140331
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
+      <label for="pass">Description</label>
+      <input type="password" class="form-control" id="bio" name="bio" placeholder="">
+    </div>
+  </div>
+  <br><br>
+  <h2>Informations véhicule :</h2>
+  <div class="form-row">
+    <div class="form-group col-md-6">
       <label for="prenom">Immatriculation</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="XX-000-XX">
+      <input type="text" class="form-control" id="immat" name="immat" placeholder="XX-000-XX">
     </div>
     <div class="form-group col-md-6">
       <label for="birth">Marque du véhicule</label>
-       <input type="text" class="form-control" id="birth" name="birth" placeholder="BMW">
+       <input type="text" class="form-control" id="modelV" name="modelV" placeholder="BMW">
     </div>
   </div>
 
 
    
- <input class="btn btn-primary" type="submit" value="S'inscrire"></p>
+ <input class="btn btn-primary" type="submit" value="S'inscrire" onclick="sign_user()"></p>
 </form>
 
   
@@ -104,5 +115,7 @@ Released   : 20140331
 <div class="tring"></div>
 
 </body>
+
+
 </html> 
 
