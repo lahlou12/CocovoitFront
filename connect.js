@@ -6,7 +6,7 @@ async function connect(){
 
       // alert(form_pass);
       // alert(form_mail);
-      alert(test);
+      alert("1");
 
   data = {
     mail: form_mail,
@@ -21,10 +21,12 @@ async function connect(){
   };
 
   console.log(data)
-
-     const  response = await fetch("http://localhost:3000/users/login/", requestOptions)
+  alert("2");
+     const  response = await fetch("http://localhost:3234/users/login/", requestOptions)
+     alert("3")
       const json = await response.json();
-      alert(json);
-      alert("non")
+      alert("4")
+      console.log(json);
+      alert("5");
       
       }

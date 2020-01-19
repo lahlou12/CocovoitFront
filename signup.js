@@ -33,7 +33,7 @@ function sign_user(){
 
   console.log(data)
 
-      fetch("http://localhost:3000/users/", requestOptions)
+      fetch("http://localhost:3234/users/", requestOptions)
       .then((response,reject) => {
           response.json();})
       .then((result) => {

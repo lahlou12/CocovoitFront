@@ -72,7 +72,7 @@ function new_trajet(){
 
   console.log(data)
 
-      fetch("http://localhost:3000/itineraires/", requestOptions)
+      fetch("http://localhost:3234/itineraires/", requestOptions)
       .then((response,reject) => {
           response.json();})
       .then((result) => {
