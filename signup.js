@@ -24,23 +24,27 @@ function sign_user(){
     biographie: form_bio
   }
 
-  const requestOptions = {
-      method: 'POST',
-      mode: "cors",
-      body: JSON.stringify(data),
-      headers: {'Content-Type': 'application/json'}
-  };
 
-  console.log(data)
 
-      fetch("http://localhost:3234/users/", requestOptions)
-      .then((response,reject) => {
-          response.json();})
-      .then((result) => {
-          console.log(result);
-          resolve("OK");})
-      .catch((error) => {
-          reject("KO");           
-      });
+      fetch('http://localhost:3000/users/',{
+        method: 'POST',
+        mode: "cors",
+        body:JSON.stringify(data),
+        headers: {"Content-Type": "application/json"}
+      })
+      .then((res)=>{
+        return new Promise((resolve,reject)=>{
+            resolve (res.json())
+        })
+      })
+
+      .then((res)=>{
+          console.log(res);
+          window.location.replace("index.html");;
+      })
+
+      .catch((error)=>{
+        console.log(error)
+      })
 
       }

@@ -1,7 +1,9 @@
-  function lolo(){
+  function chargement_trajet(id){
 
-    console.log("OK");
+    console.log("Id is : "+id);
+    localStorage.setItem('id_dernier_trajet', id);
 
+    window.location.replace("valid_trajet.html");
   }
 
 function recherche(){
@@ -24,11 +26,14 @@ var form_end = document.getElementById('add_end').value;
       .then((res)=>{
           //console.log(res.itineraire)
           localStorage.setItem('list_itineraire', JSON.stringify(res.itineraire));
+          document.location.reload(true);
       })
 
       .catch((error)=>{
         console.log(error)
       })
+
+
 }
 
 

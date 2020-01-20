@@ -73,11 +73,6 @@ Released   : 20140331
 
   <ul class="list-group">
   <div id="myHTMLWrapper"></div>
-  <li class="list-group-item">Choix numéro 1<input style="margin-left: 70%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
-  <li class="list-group-item">Choix numéro 2<input style="margin-left: 70%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
-  <li class="list-group-item">Choix numéro 3<input style="margin-left: 70%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
-  <li class="list-group-item">Choix numéro 4<input style="margin-left: 70%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
-  <li class="list-group-item">Choix numéro 5<input style="margin-left: 70%;" class="btn btn-primary" type="submit" value="Selectionner"></li>
 </ul>
     
 </div>
@@ -91,20 +86,24 @@ Released   : 20140331
     if(localStorage.getItem('list_itineraire')){
       console.log("Test affichage :");
 
-      var test = "lolo()";
+      var fct = "";
 
       var wrapper = document.getElementById("myHTMLWrapper");
-      var myHTML = '<li class="list-group-item">Choix numéro 1<input style="margin-left: 70%;" class="btn btn-primary"  value="Selectionner" onclick ="'+test+'"></li>';
+      var myHTML="";
 
-      wrapper.innerHTML = myHTML;
+     
 
       arr_iti=JSON.parse(localStorage.getItem('list_itineraire'));
       //console.log(arr_iti);
 
       for (var i = arr_iti.length - 1; i >= 0; i--) {
-        console.log(arr_iti[i]);
+        
+        var id = arr_iti[i]._id;
+        fct = "chargement_trajet(\'"+id+"\')";
 
-
+        console.log(fct);
+        myHTML = '<li class="list-group-item">'+arr_iti[i].adresseDepart+'<b> => </b> '+arr_iti[i].adresseArrive+'<br><br><input " class="btn btn-primary"  value="Selectionner" onclick ="'+fct+'"></li>';
+         wrapper.innerHTML += myHTML;
       }
     }
   </script>

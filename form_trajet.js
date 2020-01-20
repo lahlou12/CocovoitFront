@@ -81,7 +81,6 @@ function new_trajet(){
       .catch((error) => {
           reject("KO");           
       });
-
 }
 
 
