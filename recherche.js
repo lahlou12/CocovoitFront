@@ -1,4 +1,4 @@
-function connect(){
+function recherche(){
 
   // var form_mail = document.getElementById('email').value;
   // var form_pass = document.getElementById('pass').value;
@@ -29,19 +29,13 @@ function connect(){
   // console.log(json);
   // alert("5");
 
-var form_mail = document.getElementById('email').value;
-var form_pass = document.getElementById('pass').value;
+var form_start = document.getElementById('add_start').value;
+var form_end = document.getElementById('add_end').value;
   console.log('Je suis dans on submit')
-const data = {
-    mail: form_mail,
-    motdepasse: form_pass,
-  }
-      console.log(data)
       
-      fetch('http://localhost:3000/users/login/',{
-        method: 'POST',
+      fetch('http://localhost:3000/itineraires/'+form_start+"/"+form_end,{
+        method: 'GET',
         mode: "cors",
-        body:JSON.stringify(data),
         headers: {"Content-Type": "application/json"}
       })
       .then((res)=>{
@@ -51,8 +45,8 @@ const data = {
       })
 
       .then((res)=>{
-          console.log(res)
-          localStorage.setItem('user_id', res.user_id);
+          //console.log(res.itineraire)
+          localStorage.setItem('list_itineraire', JSON.stringify(res.itineraire));
       })
 
       .catch((error)=>{
