@@ -42,7 +42,7 @@ function modifier_profil(){
       var form_bio = document.getElementById('bio').value;
 
   data = {
-    name: form_name,
+    nom: form_name,
     mail: form_mail,
     prenom: form_prenom,
     dateNaissance: form_birth,
