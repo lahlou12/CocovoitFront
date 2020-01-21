@@ -40,7 +40,7 @@ function sign_user(){
 
       .then((res)=>{
           console.log(res);
-          window.location.replace("index.html");;
+          window.location.replace("index.html");
       })
 
       .catch((error)=>{

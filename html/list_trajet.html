@@ -24,8 +24,12 @@ Released   : 20140331
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
-<script type="text/javascript" src="../js/form_trajet.js"></script>
+<script type="text/javascript" src="../js/list_trajet.js"></script>
 
+<script type="text/javascript">
+  
+  recherche_trajet_user();
+</script>
 
 </head>
 <body>
@@ -53,11 +57,7 @@ Released   : 20140331
   <h2>Mes trajets en tant que conducteur :</h2>
   <br>
   <ul class="list-group">
-  <li class="list-group-item">Trajet 1<input style="margin-left: 85%;" class="btn btn-primary" type="submit" value="Visualiser"></li>
-  <li class="list-group-item">Trajet 2<input style="margin-left: 85%;" class="btn btn-primary" type="submit" value="Visualiser"></li>
-  <li class="list-group-item">Trajet 3<input style="margin-left: 85%;" class="btn btn-primary" type="submit" value="Visualiser"></li>
-  <li class="list-group-item">Trajet 4<input style="margin-left: 85%;" class="btn btn-primary" type="submit" value="Visualiser"></li>
-  <li class="list-group-item">Trajet 5<input style="margin-left: 85%;" class="btn btn-primary" type="submit" value="Visualiser"></li>
+  <div id="wrapper_conducteur"></div>
 </ul>
     <br><br>
   <h2>Mes trajets en tant que passager :</h2>
@@ -91,8 +91,47 @@ Released   : 20140331
 
 </script>
 
+<script type="text/javascript">
+    
+
+
+    if(localStorage.getItem('trajet_conducteur')){
+      //var fct = "ok";
+
+      var wrapper_cond = document.getElementById("wrapper_conducteur");
+      var myHTML_cond="";
+
+      
+
+      arr_trajet=JSON.parse(localStorage.getItem('trajet_conducteur'));
+      //console.log(arr_trajet);
+      localStorage.removeItem('value_trajet');
+      for (var i = arr_trajet.length - 1; i >= 0; i--) {
+
+          
+          get_adresse(arr_trajet[i]);
+          
+          //temp = JSON.parse(localStorage.getItem('value_trajet'))
+          //console.log(temp);
+
+      }
+
+      for (var i = arr_trajet.length - 1; i >= 0; i--) {
+        //console.log("itineraire_list"+arr_trajet[i]);
+        var val = "value_trajet"+arr_trajet[i]+"";
+
+        console.log(val);
+        console.log(JSON.parse(localStorage.getItem(val)));
+        var resultat = JSON.parse(localStorage.getItem(val));
+        myHTML_cond = '<li class="list-group-item">'+resultat.adresseDepart+'<b> => </b>'+resultat.adresseArrive+'<input style="margin-left: 85%;" class="btn btn-primary" type="submit" value="Visualiser"></li>';
+        wrapper_cond.innerHTML += myHTML_cond;
+      }
+      
+    }
+  </script>
+
         
-<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AmEn0V2vO_a1_wMw6FxFKPqd-Cw4okc-yXXV8V6uKdqkFtoiLzOhjVnXK6wfJ9iY&callback=loadMapScenario' async defer></script>
+
 </html> 
 
 

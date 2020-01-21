@@ -66,7 +66,7 @@ function modifier_profil(){
 
       .then((res)=>{
           console.log(res);
-          //document.location.reload(true);
+          document.location.reload(true);
       })
 
       .catch((error)=>{
@@ -97,6 +97,8 @@ var id_user = localStorage.getItem('user_id');
 
       .then((res)=>{
           console.log(res)
+          localStorage.removeItem('user_id');
+          window.location.replace("index.html");
       })
 
       .catch((error)=>{
