@@ -139,7 +139,7 @@ Released   : 20140331
       var user=JSON.parse(localStorage.getItem('infos_user'));
       console.log(user);
       document.getElementById("email").value = user.mail;
-      document.getElementById("name").value = "";
+      document.getElementById("name").value = user.nom;
       document.getElementById("prenom").value = user.prenom;
       document.getElementById("birth").value = user.dateNaissance;
       document.getElementById("immat").value = user.matricule;

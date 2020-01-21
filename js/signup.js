@@ -14,7 +14,7 @@ function sign_user(){
       // alert(form_mail);
 
   data = {
-    name: form_name,
+    nom: form_name,
     mail: form_mail,
     prenom: form_prenom,
     dateNaissance: form_birth,

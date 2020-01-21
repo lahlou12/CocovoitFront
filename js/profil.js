@@ -52,7 +52,7 @@ function modifier_profil(){
     biographie: form_bio
   }
 
-      fetch('http://localhost:3000/'+id,{
+      fetch('http://localhost:3000/users/'+id,{
         method: 'PUT',
         mode: "cors",
         body:JSON.stringify(data),
