@@ -44,30 +44,37 @@ Released   : 20140331
   </div>
 </div>
 
+<script type="text/javascript">
+  
+</script>
+
 <div id="wrapper">
+
+
 
 <div class="container">
   <form  method='post'>
     <h2>Vos informations personnelles</h2>
     <br>
   <div class="form-row">
+  <div id="myHTMLWrapper"></div>
     <div class="form-group col-md-6">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="aminekaramos@gmail.com">
+      <input readonly type="email" class="form-control" id="email" name="email" placeholder="Email" value="">
     </div>
     <div class="form-group col-md-6">
       <label for="name">Nom </label>
-      <input type="name" class="form-control" id="name" name="name" placeholder="Nom" value="KARA">
+      <input type="name" class="form-control" id="name" name="name" placeholder="Nom" value="">
     </div>
   </div>
    <div class="form-row">
     <div class="form-group col-md-6">
       <label for="prenom">Prénom</label>
-      <input type="name" class="form-control" id="prenom" name="prenom" placeholder="Prénom" value="Amine">
+      <input type="name" class="form-control" id="prenom" name="prenom" placeholder="Prénom" value="">
     </div>
     <div class="form-group col-md-6">
       <label for="birth">Date de naissance</label>
-       <input type="date" class="form-control" id="birth" name="birth" placeholder="jj/mm/aaaa" value="1996-09-08">
+       <input type="date" class="form-control" id="birth" name="birth" placeholder="jj/mm/aaaa" value="">
     </div>
   </div>
   <div class="form-row">
@@ -82,12 +89,20 @@ Released   : 20140331
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
+      <label for="pass">Description</label>
+      <input type="texte" class="form-control" id="bio" name="bio" placeholder="">
+    </div>
+  </div>
+  <br><br>
+  <h2>Informations véhicule :</h2>
+  <div class="form-row">
+    <div class="form-group col-md-6">
       <label for="prenom">Immatriculation</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="XX-000-XX">
+      <input type="text" class="form-control" id="immat" name="immat" placeholder="XX-000-XX">
     </div>
     <div class="form-group col-md-6">
       <label for="birth">Marque du véhicule</label>
-       <input type="text" class="form-control" id="birth" name="birth" placeholder="BMW">
+       <input type="text" class="form-control" id="modelV" name="modelV" placeholder="BMW">
     </div>
   </div>
   <div class="form-row">
@@ -100,14 +115,10 @@ Released   : 20140331
 
 
    
- <input class="btn btn-primary" type="submit" value="Modifier" ></p>
- <input class="btn btn-danger" type="submit" value="Supprimer mon compte" onclick="delete_account()"></p>
+ <input class="btn btn-primary" onclick="modifier_profil()" value="Modifier" ></p>
+ <input class="btn btn-danger"  value="Supprimer mon compte" onclick="delete_account()"></p>
 </form>
 
-  <script type="text/javascript">
-    
-    localStorage.getItem('msg');
-  </script>
   </div>
     
 </div>
@@ -115,6 +126,28 @@ Released   : 20140331
 
 </body>
 
+<script type="text/javascript">
+  load_user();
+  if(localStorage.getItem('infos_user')){
+      console.log("Test affichage :");
+
+      
+
+     
+      setTimeout(function(){
+
+      var user=JSON.parse(localStorage.getItem('infos_user'));
+      console.log(user);
+      document.getElementById("email").value = user.mail;
+      document.getElementById("name").value = "";
+      document.getElementById("prenom").value = user.prenom;
+      document.getElementById("birth").value = user.dateNaissance;
+      document.getElementById("immat").value = user.matricule;
+      document.getElementById("modelV").value = user.modelVoiture;
+
+      }, 100);
+    }
+</script>
 
 </html> 
 
